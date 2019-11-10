@@ -370,4 +370,164 @@ public class TriangleCalculatorJUnitTest {
         assertEquals(expResult, triangleTwo);
         assertEquals(triangleOne, triangleTwo);
     }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Test
+    public void testScaleneInclusive() {
+        int x = 3;
+        int y = 4;
+        int z = 2;
+        int a = 9;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x,y,z,a).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testIsoscelesInclusive() {
+        int x = 3;
+        int y = 3;
+        int z = 2;
+        int a = 9;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x,y,z,a).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testEquilateralInclusive() {
+        int x = 3;
+        int y = 3;
+        int z = 3;
+        int a = 9;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x,y,z,a).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testInvalidInclusive() {
+        int x = 1;
+        int y = 4;
+        int z = 2;
+        int a = 9;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x,y,z,a).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Test
+    public void testScaleneExclusive() {
+        int x = 3;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testIsoscelesExclusive() {
+        int x = 3;
+        int y = 3;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testEquilateralExclusive() {
+        int x = 3;
+        int y = 3;
+        int z = 3;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testInvalidExclusive() {
+        int x = 1;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Test
+    public void testScaleneCompositional() {
+        int x = 3;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y+z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testIsoscelesCompositional() {
+        int x = 3;
+        int y = 3;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y+z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testEquilateralCompositional() {
+        int x = 3;
+        int y = 3;
+        int z = 3;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y+z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testInvalidCompositional() {
+        int x = 1;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(x, y+z).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
 }
