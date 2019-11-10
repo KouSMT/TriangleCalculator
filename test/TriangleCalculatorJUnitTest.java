@@ -266,5 +266,108 @@ public class TriangleCalculatorJUnitTest {
     
     ////////////////////////////////////////////////////////////////////////////
     
+    @Test
+    public void testScalenePermutative() {
+        int x = 3;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = SCALENE;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(z,x,y).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testIsoscelesPermutative() {
+        int x = 3;
+        int y = 3;
+        int z = 2;
+        TriangleType expResult = ISOSCELES;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(z,x,y).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testEquilateralPermutative() {
+        int x = 3;
+        int y = 3;
+        int z = 3;
+        TriangleType expResult = EQUILATERAL;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(z,x,y).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testInvalidPermutative() {
+        int x = 1;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(z,x,y).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
     
+    ////////////////////////////////////////////////////////////////////////////
+    
+    @Test
+    public void testScaleneInversive() {
+        int x = 3;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(-x,-y,-z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testIsoscelesInversive() {
+        int x = 3;
+        int y = 3;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(-x,-y,-z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testEquilateralInversive() {
+        int x = 3;
+        int y = 3;
+        int z = 3;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(-x,-y,-z).getType();
+        assertEquals(expResult, triangleTwo);
+        assertNotEquals(triangleOne, triangleTwo);
+    }
+    @Test
+    public void testInvalidInversive() {
+        int x = 1;
+        int y = 4;
+        int z = 2;
+        TriangleType expResult = INVALID;
+        
+        TriangleType triangleOne = new Triangle(x,y,z).getType();
+        TriangleType triangleTwo = new Triangle(-x,-y,-z).getType();
+        assertEquals(expResult, triangleOne);
+        assertEquals(expResult, triangleTwo);
+        assertEquals(triangleOne, triangleTwo);
+    }
 }

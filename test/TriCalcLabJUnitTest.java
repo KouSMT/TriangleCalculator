@@ -12,6 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import trianglecalculator.Triangle;
 import trianglecalculator.TriangleType;
+import trianglecalculator.Coordinate;
 import static trianglecalculator.TriangleType.*;
 
 /**
@@ -39,9 +40,29 @@ public class TriCalcLabJUnitTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    public void testValidInclusive() {
+        Coordinate x = new Coordinate(0,0);
+        Coordinate y = new Coordinate(2,3);
+        Coordinate z = new Coordinate(1,5);
+        Coordinate a = new Coordinate(0,9);
+        TriangleType expResult = INVALID;
+        Coordinate[] coordArray = {x,y,z,a};
+        
+        TriangleType triangle = new Triangle(x,y,z).getType(coordArray);
+        
+        assertEquals(expResult, triangle);
+    }
+    
+    public void testValidExclusive() {
+        Coordinate x = new Coordinate(0,0);
+        Coordinate y = new Coordinate(2,3);
+        Coordinate z = new Coordinate(1,5);
+        Coordinate a = new Coordinate(0,9);
+        TriangleType expResult = INVALID;
+        Coordinate[] coordArray = {x,y};
+        
+        TriangleType triangle = new Triangle(x,y,z).getType(coordArray);
+        
+        assertEquals(expResult, triangle);
+    }
 }
